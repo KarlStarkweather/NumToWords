@@ -8,9 +8,41 @@ namespace NumToWords.Models
   {
     public int Value {get; set; }
 
+    public Number(int number)
+    {
+      Value = number;
+    }
+
+    private string TwoDigits(int val)
+    {
+      if (val < 20)
+      {
+        return FirstNinteen[val];
+      }
+      else
+      {
+        int ones = val % 10;
+        int tens = (val - ones) / 10;
+        return TensPlace[tens] + " " + FirstNinteen[ones];  
+      }
+    }
+
     public string Name()
     {
-      return FirstNinteen[Value];
+      // string digits = Value.ToString();
+
+      if (Value > 99)
+      {
+        int lessThanHundred = Value % 100;
+        int hundreds = (Value - lessThanHundred) / 100;
+        string numName = FirstNinteen[hundreds] + " hundred ";
+        numName += TwoDigits(lessThanHundred);
+        return numName;
+      }
+      else 
+      {
+        return TwoDigits(Value);
+      }
     }
 
     private static Dictionary<int, string> FirstNinteen = new Dictionary<int, string>()
@@ -37,10 +69,17 @@ namespace NumToWords.Models
       {19, "nineteen"}      
     };
 
-    
-    public Number(int number)
+    private static Dictionary<int, string> TensPlace = new Dictionary<int, string>()
     {
-      Value = number;
-    }
-  }
+      {2, "twenty"},
+      {3, "thirty"},
+      {4, "forty"},
+      {5, "fifty"},
+      {6, "sixty"},
+      {7, "seventy"},
+      {8, "eighty"},
+      {9, "ninety"},
+    };
+
+   }
 }

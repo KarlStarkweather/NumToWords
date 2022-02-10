@@ -58,6 +58,31 @@ namespace NumToWords.Tests
       Assert.AreEqual(newNumber.Name(), "thirteen");
     }
 
+    [TestMethod]
+    public void NumberName_NameLargerTwoDigitNumber_fiftysix()
+    {
+      //Arrange
+      int firstNum = 56;
+
+      //Act
+      Number newNumber = new Number(firstNum);
+
+      //Assert
+      Assert.AreEqual(newNumber.Name(), "fifty six");
+    }
+
+    [TestMethod]
+    public void NumberName_NameThreeDigitNumber_twohundredfiftysix()
+    {
+      //Arrange
+      int firstNum = 256;
+
+      //Act
+      Number newNumber = new Number(firstNum);
+
+      //Assert
+      Assert.AreEqual(newNumber.Name(), "two hundred fifty six");
+    }
 
   }
 }
