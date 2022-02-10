@@ -45,6 +45,20 @@ namespace NumToWords.Tests
       Assert.AreEqual(newNumber.Name(), "one");
     }
 
+    [TestMethod]
+    public void NumberName_NameTwoDigitNumber_thirteen()
+    {
+      //Arrange
+      int firstNum = 13;
+
+      //Act
+      Number newNumber = new Number(firstNum);
+
+      //Assert
+      Assert.AreEqual(newNumber.Name(), "thirteen");
+    }
+
+
   }
 }
 

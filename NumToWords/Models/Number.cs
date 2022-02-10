@@ -10,10 +10,10 @@ namespace NumToWords.Models
 
     public string Name()
     {
-      return Ones[Value];
+      return FirstNinteen[Value];
     }
 
-    private static Dictionary<int, string> Ones = new Dictionary<int, string>()
+    private static Dictionary<int, string> FirstNinteen = new Dictionary<int, string>()
     {
       {0, "zero"},
       {1, "one"},
@@ -25,7 +25,16 @@ namespace NumToWords.Models
       {7, "seven"},
       {8, "eight"},
       {9, "nine"},
-      {10, "ten"}
+      {10, "ten"},
+      {11, "eleven"},
+      {12, "twelve"},      
+      {13, "thirteen"},
+      {14, "fourteen"},
+      {15, "fifteen"},
+      {16, "sixteen"},
+      {17, "seventeen"},
+      {18, "eighteen"},
+      {19, "nineteen"}      
     };
 
     
