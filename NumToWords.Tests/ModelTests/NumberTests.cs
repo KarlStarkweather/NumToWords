@@ -18,6 +18,33 @@ namespace NumToWords.Tests
       //Assert
       Assert.AreEqual(typeof(Number), newNumber.GetType());
     }
+
+    [TestMethod]
+    public void NumberConstructor_SetValueOfNumber_1()
+    {
+      //Arrange
+      int firstNum = 1;
+
+      //Act
+      Number newNumber = new Number(firstNum);
+
+      //Assert
+      Assert.AreEqual(newNumber.Value, 1);
+    }
+
+    [TestMethod]
+    public void NumberName_NameSingleDigit_one()
+    {
+      //Arrange
+      int firstNum = 1;
+
+      //Act
+      Number newNumber = new Number(firstNum);
+
+      //Assert
+      Assert.AreEqual(newNumber.Name(), "one");
+    }
+
   }
 }
 
